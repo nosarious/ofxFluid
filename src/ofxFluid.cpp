@@ -45,7 +45,8 @@ ofxFluid::ofxFluid(){
     internalFormat = GL_RGBA;
     
     // ADVECT
-    fragmentShader = STRINGIFY(uniform sampler2DRect tex0;         // Real obstacles
+    // this shader was not initialized but was referenced in advect function
+    shader = STRINGIFY(uniform sampler2DRect tex0;         // Real obstacles
                                uniform sampler2DRect backbuffer;
                                uniform sampler2DRect VelocityTexture;
                                
@@ -69,6 +70,9 @@ ofxFluid::ofxFluid(){
                                } 
                                
                            );
+    shader.unload();
+    shader.setupShaderFromSource(GL_FRAGMENT_SHADER, shader);
+    shader.linkProgram();                     
     
     
     // JACOBI
