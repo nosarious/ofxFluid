@@ -46,7 +46,7 @@ ofxFluid::ofxFluid(){
     
     // ADVECT
     // this shader was not initialized but was referenced in advect function
-    shader = STRINGIFY(uniform sampler2DRect tex0;         // Real obstacles
+    string shader = STRINGIFY(uniform sampler2DRect tex0;         // Real obstacles
                                uniform sampler2DRect backbuffer;
                                uniform sampler2DRect VelocityTexture;
                                
